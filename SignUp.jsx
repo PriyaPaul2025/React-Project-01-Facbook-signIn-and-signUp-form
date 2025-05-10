@@ -30,20 +30,12 @@ const SignUp = (props) => {
           </p>
         </h1>
 
-        {/* <div className='flex gap-4'>  */}
         <input
           {...register("name", { required: true })}
           type="text"
           placeholder="Full Name"
           className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-
-        {/* <input
-         {...register("lastName", { required: true })}
-         type="text"
-          placeholder='Last Name'
-          className="w-1/2 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
-</div> */}
 
         <input
           {...register("email", { required: true })}
