@@ -1,10 +1,11 @@
-import React from "react";
+import { usercontext } from "../context/UserContext";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
 
-const SignIn = (props) => {
-  const { toggler, settoggler, users, setusers } = props;
+const SignIn = () => {
+  const { toggler, settoggler, users, setusers } = useContext(usercontext);
   const { register, handleSubmit, reset } = useForm();
 
   const submithandler = (data) => {
@@ -16,10 +17,10 @@ const SignIn = (props) => {
     } else {
       toast.error("User Not Found");
     }
-    data.id = nanoid();
+    // data.id = nanoid();
     // console.log(data);
-    const copyUsers = [...users];
-    copyUsers.push(data);
+    // const copyUsers = [...users];
+    // copyUsers.push(data);
     reset();
     //can be written in one line
     //setUsers([...users,data])
