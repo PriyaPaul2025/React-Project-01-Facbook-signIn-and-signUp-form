@@ -1,14 +1,14 @@
-import React from "react";
-import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
-
-const SignUp = (props) => {
-  const { toggler, settoggler, users, setusers } = props;
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { usercontext } from "../context/UserContext";
+const SignUp = () => {
+  const { toggler, settoggler, users, setusers } = useContext(usercontext);
   const { register, handleSubmit, reset } = useForm();
 
   const submithandler = (data) => {
     data.id = nanoid();
-    console.log(data);
+    // console.log(data);
     const copyUsers = [...users];
     copyUsers.push(data);
     setusers(copyUsers);
@@ -16,7 +16,7 @@ const SignUp = (props) => {
     //can be written in one line
     //setUsers([...users,data])
   };
-  // console.log(users);
+  console.log(users);
 
   return (
     <div className="max-w-md mx-auto bg-white p-8 rounded-xl shadow-md text-gray-800 ">
@@ -30,12 +30,20 @@ const SignUp = (props) => {
           </p>
         </h1>
 
+        {/* <div className='flex gap-4'>  */}
         <input
           {...register("name", { required: true })}
           type="text"
           placeholder="Full Name"
           className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+
+        {/* <input
+         {...register("lastName", { required: true })}
+         type="text"
+          placeholder='Last Name'
+          className="w-1/2 border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+</div> */}
 
         <input
           {...register("email", { required: true })}
