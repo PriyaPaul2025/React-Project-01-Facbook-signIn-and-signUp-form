@@ -1,6 +1,7 @@
-import React from "react";
-const Users = (props) => {
-  const { users, setusers } = props;
+import { useContext } from "react";
+import { usercontext } from "../context/UserContext";
+const Users = () => {
+  const { users, setusers } = useContext(usercontext);
 
   const deletehandler = (id) => {
     const copyUsers = [...users];
